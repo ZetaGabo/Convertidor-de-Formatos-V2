@@ -5,6 +5,7 @@
  */
 package vista;
 
+import vista.jdialogs.EjemploJDialog;
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
@@ -12,11 +13,11 @@ import javax.swing.JFrame;
  *
  * @author Jev
  */
-public class Ventana extends JFrame {
+public class VentanaPrincipal extends JFrame {
 
     private PanelBotones panelBtns;
 
-    public Ventana() {
+    public VentanaPrincipal() {
         initComp();
     }
 

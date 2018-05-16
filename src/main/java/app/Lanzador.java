@@ -5,7 +5,7 @@
  */
 package app;
 
-import vista.Ventana;
+import vista.VentanaPrincipal;
 
 /**
  *
@@ -14,7 +14,7 @@ import vista.Ventana;
 public class Lanzador {
    
     public static void main(String[] args) {        
-        Ventana miventana = new Ventana();        
+        VentanaPrincipal miventana = new VentanaPrincipal();        
     }
     
 }
