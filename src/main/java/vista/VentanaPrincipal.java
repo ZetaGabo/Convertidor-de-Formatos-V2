@@ -8,7 +8,6 @@ package vista;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
 /**
@@ -31,18 +30,14 @@ public class VentanaPrincipal extends JFrame {
         this.setTitle("Convertidor");
         this.setSize(450, 300);
         this.setLocationRelativeTo(null);
-        //  this.setResizable(false);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         this.scrollPaneles = new JScrollPane();
         this.botones = new PanelBotones();
 
         this.audio = new PanelConvAudio();
-        //this.audio.setVisible(false);
         this.imagen = new PanelConvImagen();
-        //this.imagen.setVisible(false);
         this.video = new PanelConvVideo();
-        //this.video.setVisible(false);
 
         this.add(scrollPaneles, BorderLayout.CENTER);
 
@@ -68,7 +63,6 @@ public class VentanaPrincipal extends JFrame {
         });
 
         this.add(botones, BorderLayout.WEST);
-        //add(new Panel2(), BorderLayout.CENTER);
 
         this.setVisible(true);
 
