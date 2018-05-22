@@ -20,45 +20,41 @@ import javax.swing.JPanel;
  */
 public class PanelBotones extends JPanel {
 
-    public JButton botonAudio, botonImagen, botonVideo, botonSalir;
+    public JButton botonAudio, botonImagen, botonVideo;
     private JLabel texto;
 
     public PanelBotones() {
-        initComp();
+        this.inicializarComponentes();
     }
 
-    private void initComp() {
+    private void inicializarComponentes() {
         this.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
-        this.setBackground(Color.CYAN.darker());
+        this.setBackground(Color.WHITE.darker());
 
         this.botonAudio = new JButton("Audio");
-        // this.botonAudio.setBackground(Color.ORANGE.brighter());
-        this.botonImagen = new JButton("Imagen");
-        // this.botonImagen.setBackground(Color.MAGENTA.darker().darker());
-        this.botonVideo = new JButton("Video");
-        // this.botonVideo.setBackground(Color.PINK.brighter());
-        this.botonSalir = new JButton("Salir");
-        // this.botonSalir.setBackground(Color.blue);
+        this.botonAudio.setBackground(Color.WHITE.brighter());
 
-        gbc.insets = new Insets(0, 0, 50, 0);
+        this.botonImagen = new JButton("Imagen");
+        this.botonImagen.setBackground(Color.WHITE.brighter());
+
+        this.botonVideo = new JButton("Video");
+        this.botonVideo.setBackground(Color.WHITE.brighter());
+
+        gbc.insets = new Insets(0, 0, 40, 10);
 
         this.texto = new JLabel("Convertir:");
-        this.texto.setFont(new Font("Verdana", Font.BOLD, 25));
+        this.texto.setFont(new Font("Verdana", Font.BOLD, 20));
         this.add(texto, gbc);
 
-        gbc.insets = new Insets(0, 0, 0, 0);
+        gbc.insets = new Insets(0, 0, 5, 0);
         gbc.gridx = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         this.add(botonAudio, gbc);
         this.add(botonImagen, gbc);
         this.add(botonVideo, gbc);
-
-        gbc.insets = new Insets(50, 0, 10, 0);
-
-        this.add(botonSalir, gbc);
 
     }
 

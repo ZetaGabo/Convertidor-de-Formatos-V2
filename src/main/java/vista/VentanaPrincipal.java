@@ -5,9 +5,11 @@
  */
 package vista;
 
-import vista.jdialogs.EjemploJDialog;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -15,34 +17,61 @@ import javax.swing.JFrame;
  */
 public class VentanaPrincipal extends JFrame {
 
-    private PanelBotones panelBtns;
+    private PanelBotones botones;
+    private JScrollPane scrollPaneles;
+    private PanelConvAudio audio;
+    private PanelConvImagen imagen;
+    private PanelConvVideo video;
 
     public VentanaPrincipal() {
-        initComp();
+        this.inicializarComponentes();
     }
 
-    private void initComp() {
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(300, 350);
-        setLocationRelativeTo(null);
+    private void inicializarComponentes() {
+        this.setTitle("Convertidor");
+        this.setSize(450, 300);
+        this.setLocationRelativeTo(null);
+        //  this.setResizable(false);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        panelBtns = new PanelBotones();
-        
-        panelBtns.botonAudio.addActionListener(e -> {
-            new EjemploJDialog(this, true).setVisible(true);
+        this.scrollPaneles = new JScrollPane();
+        this.botones = new PanelBotones();
+
+        this.audio = new PanelConvAudio();
+        //this.audio.setVisible(false);
+        this.imagen = new PanelConvImagen();
+        //this.imagen.setVisible(false);
+        this.video = new PanelConvVideo();
+        //this.video.setVisible(false);
+
+        this.add(scrollPaneles, BorderLayout.CENTER);
+
+        this.botones.botonAudio.addActionListener(e -> {
+            this.scrollPaneles.setViewportView(this.audio);
+            this.botones.botonAudio.setBackground(Color.WHITE.darker());
+            this.botones.botonImagen.setBackground(Color.WHITE);
+            this.botones.botonVideo.setBackground(Color.WHITE);
         });
-        panelBtns.botonImagen.addActionListener(e -> {
-            
+
+        this.botones.botonImagen.addActionListener(e -> {
+            this.scrollPaneles.setViewportView(this.imagen);
+            this.botones.botonImagen.setBackground(Color.WHITE.darker());
+            this.botones.botonAudio.setBackground(Color.WHITE);
+            this.botones.botonVideo.setBackground(Color.WHITE);
         });
-        panelBtns.botonVideo.addActionListener(e -> {
-            
+
+        this.botones.botonVideo.addActionListener(e -> {
+            this.scrollPaneles.setViewportView(this.video);
+            this.botones.botonVideo.setBackground(Color.WHITE.darker());
+            this.botones.botonImagen.setBackground(Color.WHITE);
+            this.botones.botonAudio.setBackground(Color.WHITE);
         });
-        panelBtns.botonSalir.addActionListener(e -> {
-            System.exit(0);
-        });
-        
-        add(panelBtns, BorderLayout.CENTER);
-        
-        setVisible(true);
+
+        this.add(botones, BorderLayout.WEST);
+        //add(new Panel2(), BorderLayout.CENTER);
+
+        this.setVisible(true);
+
     }
+
 }
