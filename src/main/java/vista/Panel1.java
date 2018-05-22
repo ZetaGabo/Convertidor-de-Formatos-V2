@@ -24,18 +24,18 @@ public class Panel1 extends JPanel {  //panel 1,2,3 nombres temporales
     private JButton btn;
     private JLabel lb;
 
-    public Panel1() {
-        this.inicializarComponentes();
+    public Panel1(String textoBtn, String textoLbl) {
+        this.inicializarComponentes(textoBtn, textoLbl);
     }
 
-    private void inicializarComponentes() {
+    private void inicializarComponentes(String textoBtn, String textoLbl) {
         this.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
 
         cb = new JComboBox();
         cb.addItem("Mp3");
-        btn = new JButton("Buscar archivo");
-        lb = new JLabel("Archivo a convertir:");
+        btn = new JButton(textoBtn);
+        lb = new JLabel(textoLbl);
         lb.setFont(new Font("Verdana", Font.BOLD, 15));
 
         gbc.gridx = 1;

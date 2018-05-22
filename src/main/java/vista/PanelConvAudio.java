@@ -33,8 +33,8 @@ public class PanelConvAudio extends JPanel {
         this.bot.botonAtras.setEnabled(false);
         this.add(this.bot, BorderLayout.SOUTH);
 
-        this.panel1 = new Panel1();
-        this.panel2 = new Panel1();
+        this.panel1 = new Panel1("Buscar archivo", "Archivo a convertir:");
+        this.panel2 = new Panel1("Guardar en", "Convertir a:");
 
         this.scrollPaneles = new JScrollPane();
         this.add(scrollPaneles, BorderLayout.CENTER);
