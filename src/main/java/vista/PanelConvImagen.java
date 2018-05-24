@@ -36,7 +36,6 @@ public class PanelConvImagen extends JPanel {
         this.add(this.bot, BorderLayout.SOUTH);
 
         String[] formatos = {"Jpg", "Png", "Gif", "Bmp"};
-        System.out.println(formatos[1]);
         this.panel1 = new PanelArchivo("Buscar archivo", "Archivo a convertir:", formatos);
         this.panel2 = new PanelArchivo("Guardar en", "Convertir archivo a:", formatos);
         this.panel3 = new PanelConvertir();
