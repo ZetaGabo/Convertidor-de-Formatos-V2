@@ -23,7 +23,7 @@ public class PanelBotonesPnl extends JPanel {
 
     private void inicializarComponentes() {
         this.setLayout(new GridLayout(1,2));
-        this.botonAtras = new JButton("Atras");
+        this.botonAtras = new JButton("Atrás");
         this.botonSiguiente = new JButton("Siguiente");
         this.add(botonAtras);
         this.add(botonSiguiente);
