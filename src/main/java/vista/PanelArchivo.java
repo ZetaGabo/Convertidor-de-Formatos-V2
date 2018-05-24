@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  *
  * @author Jev
  */
-public class PanelArchivo extends JPanel {  //panel 1,2,3 nombres temporales
+public class PanelArchivo extends JPanel {
 
     private JComboBox cb;
     private JButton btn;
@@ -43,7 +43,6 @@ public class PanelArchivo extends JPanel {  //panel 1,2,3 nombres temporales
         cb = new JComboBox(this.formatos);         
         btn = new JButton(textoBtn);
 
-        //esto es solo una prueba
         btn.addActionListener(e -> {
             JFileChooser dig = new JFileChooser();
             int opcion = dig.showOpenDialog(this);
