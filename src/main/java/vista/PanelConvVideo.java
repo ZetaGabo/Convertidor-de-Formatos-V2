@@ -21,8 +21,9 @@ public class PanelConvVideo extends JPanel {
     private int cont = 0;
 
     private PanelArchivo panel1, panel2;
-    private PanelOpciones panel3;
-    private PanelConvertir panel4;
+    private PanelOpcVideo panel3;
+    private PanelOpcAudio panel4;
+    private PanelConvertir panel5;
     
     public PanelConvVideo() {
         this.inicializarComponentes();
@@ -39,8 +40,9 @@ public class PanelConvVideo extends JPanel {
         String[] formatos = {"Mp4", "Avi", "Flv", "3gp"};
         this.panel1 = new PanelArchivo("Buscar archivo", "Archivo a convertir:", formatos);
         this.panel2 = new PanelArchivo("Guardar en", "Convertir archivo a:", formatos);
-        this.panel3 = new PanelOpciones();
-        this.panel4 = new PanelConvertir();
+        this.panel3 = new PanelOpcVideo();
+        this.panel4 = new PanelOpcAudio();
+        this.panel5 = new PanelConvertir();
 
         this.scrollPaneles = new JScrollPane();
         this.add(scrollPaneles, BorderLayout.CENTER);
@@ -56,6 +58,9 @@ public class PanelConvVideo extends JPanel {
                 cont--;
             } else if (cont == 3) {
                 this.scrollPaneles.setViewportView(this.panel3);
+                cont--;
+            }else if (cont == 4) {
+                this.scrollPaneles.setViewportView(this.panel4);
                 this.bot.botonSiguiente.setEnabled(true);
                 cont--;
             }
@@ -72,6 +77,9 @@ public class PanelConvVideo extends JPanel {
                 cont++;
             } else if (cont == 2) {
                 this.scrollPaneles.setViewportView(this.panel4);
+                cont++;
+            }else if (cont == 3) {
+                this.scrollPaneles.setViewportView(this.panel5);
                 this.bot.botonSiguiente.setEnabled(false);
                 cont++;
             }
