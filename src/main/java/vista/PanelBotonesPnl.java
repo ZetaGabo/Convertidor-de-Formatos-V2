@@ -13,11 +13,11 @@ import javax.swing.JPanel;
  *
  * @author Jev
  */
-public class PanelBotones2 extends JPanel {
+public class PanelBotonesPnl extends JPanel {
 
     public JButton botonAtras, botonSiguiente;
 
-    public PanelBotones2() {
+    public PanelBotonesPnl() {
         this.inicializarComponentes();
     }
 

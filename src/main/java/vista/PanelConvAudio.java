@@ -16,10 +16,13 @@ import javax.swing.JScrollPane;
  */
 public class PanelConvAudio extends JPanel {
 
-    private PanelBotones2 bot;
+    private PanelBotonesPnl bot;
     private JScrollPane scrollPaneles;
+    private int cont = 0;
 
-    private Panel1 panel1, panel2;
+    private PanelArchivo panel1, panel2;
+    private PanelOpciones panel3;
+    private PanelConvertir panel4;
 
     public PanelConvAudio() {
         this.inicializarComponentes();
@@ -29,31 +32,49 @@ public class PanelConvAudio extends JPanel {
         this.setLayout(new BorderLayout());
         this.setBackground(Color.DARK_GRAY.brighter());
 
-        this.bot = new PanelBotones2();
+        this.bot = new PanelBotonesPnl();
         this.bot.botonAtras.setEnabled(false);
         this.add(this.bot, BorderLayout.SOUTH);
 
-        this.panel1 = new Panel1("Buscar archivo", "Archivo a convertir:");
-        this.panel2 = new Panel1("Guardar en", "Convertir a:");
+        String[] formatos = {"Mp3", "Wav", "Flac"};
+        System.out.println(formatos[1]);
+        this.panel1 = new PanelArchivo("Buscar archivo", "Archivo a convertir:", formatos);
+        this.panel2 = new PanelArchivo("Guardar en", "Convertir archivo a:", formatos);
+        this.panel3 = new PanelOpciones();
+        this.panel4 = new PanelConvertir();
 
         this.scrollPaneles = new JScrollPane();
         this.add(scrollPaneles, BorderLayout.CENTER);
         this.scrollPaneles.setViewportView(this.panel1);
 
         this.bot.botonAtras.addActionListener(e -> {
-            if (panel2.isVisible()) {
+            if (cont == 1) {
                 this.bot.botonAtras.setEnabled(false);
                 this.scrollPaneles.setViewportView(this.panel1);
-            } else {
+                cont--;
+            } else if (cont == 2) {
+                this.scrollPaneles.setViewportView(this.panel2);
+                cont--;
+            } else if (cont == 3) {
+                this.scrollPaneles.setViewportView(this.panel3);
+                this.bot.botonSiguiente.setEnabled(true);
+                cont--;
             }
 
         });
 
         this.bot.botonSiguiente.addActionListener(e -> {
-            if (panel1.isVisible()) {
+            if (cont == 0) {
                 this.bot.botonAtras.setEnabled(true);
                 this.scrollPaneles.setViewportView(this.panel2);
-            } else {
+                cont++;
+            } else if (cont == 1) {
+                this.scrollPaneles.setViewportView(this.panel3);
+                cont++;
+            } else if (cont == 2) {
+                this.scrollPaneles.setViewportView(this.panel4);
+                this.bot.botonSiguiente.setEnabled(false);
+                cont++;
             }
         });
 

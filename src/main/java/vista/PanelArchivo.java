@@ -9,8 +9,10 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -18,24 +20,39 @@ import javax.swing.JPanel;
  *
  * @author Jev
  */
-public class Panel1 extends JPanel {  //panel 1,2,3 nombres temporales
+public class PanelArchivo extends JPanel {  //panel 1,2,3 nombres temporales
 
     private JComboBox cb;
     private JButton btn;
     private JLabel lb;
+    private final String textoBtn, textoLb;
+    private String[] formatos; 
 
-    public Panel1(String textoBtn, String textoLbl) {
-        this.inicializarComponentes(textoBtn, textoLbl);
+    public PanelArchivo(String textoBtn, String textoLb, String[] formatos) {
+        this.textoBtn = textoBtn;
+        this.textoLb = textoLb;
+        this.formatos = formatos;
+        this.inicializarComponentes();
     }
 
-    private void inicializarComponentes(String textoBtn, String textoLbl) {
+    private void inicializarComponentes() {
         this.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
+        this.setBorder(BorderFactory.createTitledBorder("Archivo "));
 
-        cb = new JComboBox();
-        cb.addItem("Mp3");
+        cb = new JComboBox(this.formatos);         
         btn = new JButton(textoBtn);
-        lb = new JLabel(textoLbl);
+
+        //esto es solo una prueba
+        btn.addActionListener(e -> {
+            JFileChooser dig = new JFileChooser();
+            int opcion = dig.showOpenDialog(this);
+            if (opcion == JFileChooser.APPROVE_OPTION) {
+                String file = dig.getSelectedFile().getPath();
+            }
+        });
+
+        lb = new JLabel(textoLb);
         lb.setFont(new Font("Verdana", Font.BOLD, 15));
 
         gbc.gridx = 1;
