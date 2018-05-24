@@ -21,7 +21,7 @@ public class PanelConvAudio extends JPanel {
     private int cont = 0;
 
     private PanelArchivo panel1, panel2;
-    private PanelOpciones panel3;
+    private PanelOpcAudio panel3;
     private PanelConvertir panel4;
 
     public PanelConvAudio() {
@@ -39,7 +39,7 @@ public class PanelConvAudio extends JPanel {
         String[] formatos = {"Mp3", "Wav", "Flac"};
         this.panel1 = new PanelArchivo("Buscar archivo", "Archivo a convertir:", formatos);
         this.panel2 = new PanelArchivo("Guardar en", "Convertir archivo a:", formatos);
-        this.panel3 = new PanelOpciones();
+        this.panel3 = new PanelOpcAudio();
         this.panel4 = new PanelConvertir();
 
         this.scrollPaneles = new JScrollPane();
